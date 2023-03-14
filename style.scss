@@ -1,0 +1,202 @@
+// lear
+// Results Summary Component
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hanken Grotesk", sans-serif;
+}
+
+// Colors
+$lightRed: hsl(0, 100%, 67%);
+$orangeYellow: hsl(39, 100%, 56%);
+$greenTeal: hsl(166, 100%, 37%);
+$cobaltBlue: hsl(234, 85%, 45%);
+$white: hsl(0, 0%, 100%);
+$paleBlue: hsl(221, 100%, 96%);
+$lightLavender: hsl(241, 100%, 89%);
+$darkGrayBlue: hsl(224, 30%, 27%);
+
+$lightSlateBlue: hsl(252, 100%, 67%);
+$lightRoyalBlue: hsl(241, 81%, 54%);
+$violetBlue: hsla(256, 72%, 46%, 1);
+$persianBlue: hsla(241, 72%, 46%, 0);
+
+body {
+  background-color: $white;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}
+
+.text {
+  line-height: 1.5rem;
+  color: $lightLavender;
+}
+
+// Container
+.container {
+  width: 700px;
+  display: flex;
+  background-color: $white;
+  box-shadow: 0 0.5rem 1rem $paleBlue;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+
+  .left-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-basis: 90%;
+    padding: 2rem 3rem;
+    background-image: linear-gradient($lightSlateBlue, $lightRoyalBlue);
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    text-align: center;
+    color: $white;
+
+    .circle {
+      margin: 2rem auto;
+      display: grid;
+      place-content: center;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+      background-image: linear-gradient($violetBlue, $persianBlue);
+
+      .score {
+        font-size: 3.5rem;
+      }
+    }
+
+    .bottom-heading {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .right-side {
+    flex-basis: 110%;
+    padding: 2rem;
+
+    .btn {
+      color: $white;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 2rem;
+      -webkit-border-radius: 2rem;
+      -moz-border-radius: 2rem;
+      -ms-border-radius: 2rem;
+      -o-border-radius: 2rem;
+      background-color: $darkGrayBlue;
+
+      &:hover {
+        background-image: linear-gradient($lightSlateBlue, $lightRoyalBlue);
+      }
+    }
+
+    .right-heading {
+      color: $darkGrayBlue;
+    }
+
+    .summary-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      list-style: none;
+      margin: 2rem auto;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        -webkit-border-radius: 0.75rem;
+        -moz-border-radius: 0.75rem;
+        -ms-border-radius: 0.75rem;
+        -o-border-radius: 0.75rem;
+
+        div {
+          display: flex;
+          align-items: center;
+          font-size: 0.975rem;
+          color: $darkGrayBlue;
+
+          img {
+            margin-right: 1rem;
+          }
+
+          .mini-score {
+            margin-right: 0.5rem;
+            color: #000;
+          }
+        }
+
+        &.red {
+          background-color: hsla(0, 100%, 67%, 0.085);
+
+          .summary-text {
+            color: $lightRed;
+            font-size: 1.1rem;
+          }
+        }
+
+        &.yellow {
+          background-color: hsla(39, 100%, 56%, 0.085);
+
+          .summary-text {
+            color: $orangeYellow;
+            font-size: 1.1rem;
+          }
+        }
+
+        &.green {
+          background-color: hsla(166, 100%, 37%, 0.085);
+
+          .summary-text {
+            color: $greenTeal;
+            font-size: 1.1rem;
+          }
+        }
+
+        &.blue {
+          background-color: hsla(234, 85%, 45%, 0.085);
+
+          .summary-text {
+            color: $cobaltBlue;
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// For Smaller Devices
+@media screen and (max-width: 748px) {
+  .container {
+    flex-direction: column;
+    width: min(360px, 100%);
+    margin: 2rem auto;
+
+    .left-side,
+    .right-side {
+      flex-basis: 100%;
+    }
+  }
+}
